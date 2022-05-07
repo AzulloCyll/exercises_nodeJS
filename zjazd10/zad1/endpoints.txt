@@ -1,0 +1,62 @@
+ZASOBY:
+
+student
+szkola
+kurs
+wyklad
+
+student
+shool
+course
+lecture
+
+students
+shools
+courses
+lectures
+
+
+// CRUD for students
+--------------------
+CREATE
+    POST /students
+READ
+    GET /students
+    GET /students/:id
+UPDATE
+    PATCH /students/:id
+    PATCH /students <-- można podać id w ciele żądania
+DELETE
+    DELETE /students/:id
+
+
+// CRUD for schools
+-------------------
+CREATE
+    POST /schools
+READ
+    GET /schools
+    GET /schools/:id
+UPDATE
+    PATCH /schools/:id
+    PATCH /schools <-- można podać id w ciele żądania
+DELETE
+    DELETE /schools/:id
+
+
+//dodawanie kursów do szkoły
+
+    POST /schools/:schoolId/courses
+
+// listowanie kursów w danej szkole po nazwie i roku startu
+    GET /schools/:schoolId/courses <---- wszystkie kursy w danej szkole
+    GET /schools/:schoolId/courses?name=value1&startYear=value2
+
+// dodawania wykładów do kursu
+    POST /schools/:schoolId/courses/:courseId/lectures
+
+// listowanie wykładów w ramach kursu w danej szkole
+    GET /schools/:schoolId/courses/:courseId/lectures
+
+// zapisywanie studentow na kurs w danej szkole
+    POST /schools/:schoolId/courses/:courseId/students
